@@ -7,7 +7,10 @@
   <script>
     var app = angular.module("myShoppingList", []);
     app.controller("myCtrl", function($scope) {
-    $scope.products = ["Milk", "Eggs", "Cheese"];
+      $scope.products = ["Milk", "Eggs", "Cheese"];
+      $scope.addItem = function () {
+          $scope.products.push($scope.addMe);
+      }
     });
   </script>
 
@@ -15,6 +18,8 @@
     <ul>
       <li ng-repeat="product in products">{{product}}</li>
     </ul>
+    <input ng-model="addMe">
+    <button ng-click="addItem()">Add Item</button>
   </div>
 
   </body>
